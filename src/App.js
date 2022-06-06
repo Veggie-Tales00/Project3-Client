@@ -1,6 +1,8 @@
 import "./App.css";
-import { Link } from "react-router-dom";
-
+import { Link, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home";
+import Manager from "./Components/Manager"
+import Employee from "./Components/Employee"
 
 function App() {
   return (
@@ -16,7 +18,11 @@ function App() {
           <h2>Employee</h2>
         </Link>
       </nav>
-      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/manager" element={<Manager />} />
+        <Route path="/employee" element={<Employee />} />
+      </Routes>
     </div>
   );
 }
