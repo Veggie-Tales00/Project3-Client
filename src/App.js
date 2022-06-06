@@ -3,6 +3,7 @@ import { Link, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Manager from "./Components/Manager"
 import Employee from "./Components/Employee"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
