@@ -9,29 +9,31 @@ const Home = () => {
       <Card>
         <CardTitle tag="h3">Red Wine</CardTitle>
         <CardImg alt="" src="" width=""></CardImg>
-        <Button>Go to</Button>
+        <Link to='/wine'>
+          <Button>Go to</Button>
+        </Link>
       </Card>
 
       <Card>
-        <CardTitle tag="h3">Red Wine</CardTitle>
+        <CardTitle tag="h3">White</CardTitle>
         <CardImg alt="" src="" width=""></CardImg>
         <Button>Go to</Button>
       </Card>
 
       <Card>
-        <CardTitle tag="h3">Red Wine</CardTitle>
+        <CardTitle tag="h3">Sparkling</CardTitle>
         <CardImg alt="" src="" width=""></CardImg>
         <Button>Go to</Button>
       </Card>
 
       <Card>
-        <CardTitle tag="h3">Red Wine</CardTitle>
+        <CardTitle tag="h3">Desert / Other</CardTitle>
         <CardImg alt="" src="" width=""></CardImg>
         <Button>Go to</Button>
       </Card>
 
       <Card>
-        <CardTitle tag="h3">Red Wine</CardTitle>
+        <CardTitle tag="h3">Dishes</CardTitle>
         <CardImg alt="" src="" width=""></CardImg>
         <Button>Go to</Button>
       </Card>
