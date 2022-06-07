@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Wine() {
+export default function Wine(props) {
   //const [wineData, setWineData] = useState([]);
 
   useEffect(() => {
@@ -9,8 +9,11 @@ function Wine() {
       .then((data) => console.log(data.wines));
   }, []);
  
-
-  return <div>Wine</div>;
+    
+    return (
+        <div>
+            <h1>{props.type}</h1>
+        </div>
+    )
 }
 
-export default Wine;
