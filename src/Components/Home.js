@@ -1,23 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "reactstrap";
+import { Button, Card, CardImg, CardTitle, Input } from "reactstrap";
 
 const Home = () => {
   return (
     <div>
       <h1>Som-base</h1>
-      <Link to="/manager">
-        <Button color="primary">
-          <h2>Manager</h2>
-          <h4>Sign in</h4>
-        </Button>
-      </Link>
-      <Link to="/employee">
-        <Button color="primary">
-          <h2>Employee</h2>
-          <h4>Sign in</h4>
-        </Button>
-      </Link>
+      <Card>
+        <CardTitle tag="h3">Red Wine</CardTitle>
+        <CardImg alt="" src="" width=""></CardImg>
+        <Button>Go to</Button>
+      </Card>
+
+      <Card>
+        <CardTitle tag="h3">Red Wine</CardTitle>
+        <CardImg alt="" src="" width=""></CardImg>
+        <Button>Go to</Button>
+      </Card>
+
+      <Card>
+        <CardTitle tag="h3">Red Wine</CardTitle>
+        <CardImg alt="" src="" width=""></CardImg>
+        <Button>Go to</Button>
+      </Card>
+
+      <Card>
+        <CardTitle tag="h3">Red Wine</CardTitle>
+        <CardImg alt="" src="" width=""></CardImg>
+        <Button>Go to</Button>
+      </Card>
+
+      <Card>
+        <CardTitle tag="h3">Red Wine</CardTitle>
+        <CardImg alt="" src="" width=""></CardImg>
+        <Button>Go to</Button>
+      </Card>
     </div>
   );
 };
