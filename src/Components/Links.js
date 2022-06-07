@@ -1,17 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 
 const Links = () => {
   return (
     <nav>
       <Link to="/">
-        <h2>Home</h2>
+        <Button color="primary">
+          <h2>Home</h2>
+        </Button>
       </Link>
       <Link to="/manager">
-        <h2>Manager</h2>
+        <Button color="primary">
+          <h2>Manager</h2>
+        </Button>
       </Link>
       <Link to="/employee">
-        <h2>Employee</h2>
+        <Button color="primary">
+          <h2>Employee</h2>
+        </Button>
       </Link>
     </nav>
   );
