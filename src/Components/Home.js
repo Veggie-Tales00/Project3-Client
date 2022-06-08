@@ -100,15 +100,15 @@ const Home = (props) => {
           </Col>
           <Col>
             <Card>
-              <CardTitle tag="h3">Desert / Other</CardTitle>
+              <CardTitle tag="h3">Dessert / Other</CardTitle>
               <CardImg
                 className="ImgSize"
-                alt="Desert Wine Photo"
+                alt="Dessert Wine Photo"
                 src={DesertWineImg}
                 width=""
               ></CardImg>
               <Link to="/wine">
-                <Button id="Desert" onClick={props.setType}>
+                <Button id="Dessert" onClick={props.setType}>
                   Go to
                 </Button>
               </Link>
