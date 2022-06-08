@@ -4,7 +4,6 @@ export default function Wine(props) {
   const [wineData, setWineData] = useState([]);
   const [initialType, setInitialType] = useState("");
 
-  
 
   useEffect(() => {
     setInitialType(props.type)
