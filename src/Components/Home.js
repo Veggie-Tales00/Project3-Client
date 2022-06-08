@@ -103,7 +103,7 @@ const Home = (props) => {
               <CardTitle tag="h3">Dessert / Other</CardTitle>
               <CardImg
                 className="ImgSize"
-                alt="Desert Wine Photo"
+                alt="Dessert Wine Photo"
                 src={DesertWineImg}
                 width=""
               ></CardImg>
