@@ -1,7 +1,7 @@
 let apiUrl
 const apiUrls = {
   production: 'https://agile-beach-94262.herokuapp.com',
-  development: 'http://localhost:3000/'
+  development: 'http://localhost:8080'
 }
 
 if (window.location.hostname === 'localhost') {
