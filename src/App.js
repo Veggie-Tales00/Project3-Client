@@ -4,13 +4,8 @@ import Home from "./Components/Home";
 import Manager from "./Components/Manager";
 import Employee from "./Components/Employee";
 import ManagerLogin from "./Components/ManagerLogin";
-<<<<<<< HEAD
 import ManageWine from "./Components/ManageWine";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Dropdown, DropdownItem, Offcanvas, OffcanvasBody, OffcanvasHeader } from "reactstrap";
-=======
 import "bootstrap/dist/css/bootstrap.min.css";
->>>>>>> 3526f4623b2f2a4567d02067bd7f782481418203
 import Links from "./Components/Links";
 import Wine from "./Components/Wine";
 import { useState, useEffect } from "react";

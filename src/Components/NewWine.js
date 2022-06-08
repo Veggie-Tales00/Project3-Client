@@ -1,7 +1,10 @@
 import React from 'react'
-import {Form, Input} from 'reactstrap'
+import {Form, Input, Button} from 'reactstrap'
 
 const NewWine = () => {
+
+  //TBD Post request
+
   return (
     <div>
     <Form>
@@ -12,6 +15,7 @@ const NewWine = () => {
         <Input name="Vintage" type='text' placeholder='Wine Vintage'></Input>
         <Input name="Price" type='text' placeholder='Wine Price (Bottle, Glass)'></Input>
         <Input name="Notes" type='text' placeholder='Wine Notes(1, 2, 3, ...)'></Input>
+        <Button> Submit </Button>
     </Form>
 </div>
   )
