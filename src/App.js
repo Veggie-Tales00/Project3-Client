@@ -4,6 +4,7 @@ import Home from "./Components/Home";
 import Manager from "./Components/Manager"
 import Employee from "./Components/Employee"
 import ManagerLogin from "./Components/ManagerLogin";
+import ManageWine from "./Components/ManageWine";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Dropdown, DropdownItem, Offcanvas, OffcanvasBody, OffcanvasHeader } from "reactstrap";
 import Links from "./Components/Links";
@@ -53,6 +54,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home setType={callback} />} />
         <Route path="/manager" element={<Manager />} />
+        <Route path="/managerWine" element={<ManageWine />} />
         <Route path="/employee" element={<Employee />} />
         <Route path="/wine" element={<Wine type={wineType} />} />
         <Route path="/dish" element={<Dish />} />

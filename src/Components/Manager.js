@@ -6,7 +6,7 @@ const Manager = () => {
   return (
     <div>
       <h1>Manager</h1>
-      <Link to="/manager/wine">
+      <Link to="/managerWine">
         <Button color="primary">
           <h2>Manage Wine</h2>
         </Button>
