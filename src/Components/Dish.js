@@ -1,11 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import apiUrl from "../apiURL";
 
 export default function Dish(props) {
   const [dish, setDish] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/dishes`)
+    fetch(`${apiUrl}/wines`)
       .then((response) => response.json())
       .then((data) => setDish(data.dishes))
       .catch((error) => console.log(error));
