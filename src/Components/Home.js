@@ -7,8 +7,6 @@ import SparklingWineImg from "../Imgs/SparklingWine.jpeg"
 import DesertWineImg from "../Imgs/DesertWine.jpg"
 
 const Home = (props) => {
-
-
   return (
     <div>
       <h1>Som-base</h1>
@@ -63,7 +61,9 @@ const Home = (props) => {
             <Card>
               <CardTitle tag="h3">Dishes</CardTitle>
               <CardImg alt="" src="" width=""></CardImg>
+              <Link to="/dish">
               <Button >Go to</Button>
+              </Link>
             </Card>
           </Col>
         </Row>
