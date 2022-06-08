@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function ManagerLogin() {
+function ManagerLogin(props) {
   return (
     <div>
       <h3>Manager login:</h3>
@@ -13,7 +14,9 @@ function ManagerLogin() {
           Password:
           <input type="text" placeholder="password..." />
         </label>
-        <input type="submit" />
+        <Link to="/manager">
+          <input onClick={props.submit} type="submit" />
+        </Link>
       </form>
     </div>
   );
