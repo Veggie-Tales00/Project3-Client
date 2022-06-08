@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import apiURL from '../apiURL'
 import { useEffect } from 'react'
-import { List } from 'reactstrap'
+import { Accordion, AccordionBody, AccordionItem, List } from 'reactstrap'
 
 export default function EditWine() {
 const [wineList, setWineList] = useState([])
-
+const [isThisOpen, setIsThisOpen] = useState('')
     useEffect(()=>{
         fetch(`${apiURL}/wines`)
         .then(response => response.json())
@@ -14,14 +14,37 @@ const [wineList, setWineList] = useState([])
 
     }, [])
 
-    const displayList = wineList.map((item)=>{
+    const handleExpansion = (e) =>{
+        console.log(e.target.id)
+        if(isThisOpen === ''){
+         setIsThisOpen(parseInt(e.target.id))
+        }else{
+            setIsThisOpen('')
+        }
+
+    }
+
+    const displayList = wineList.map((item, i)=>{
         return(
-            <li key={item._id}>
-                <div>
-                    Type: {item.Type}
-                </div>
-                <h3>{item.Producer}</h3>
-                <h4>{item.Variety}</h4>
+            <li key={item._id} >
+                <Accordion open={isThisOpen}>
+                    <div onClick={handleExpansion} id={i}>
+                        Type: {item.Type} <br />
+                        Producer: {item.Producer}
+                    </div>
+                    <AccordionItem >
+                        <AccordionBody accordionId={i}>
+                        <ul>
+                            <li>{item.Variety}</li>
+                            <ul>
+                                Price:
+                                <li>Bottle:{item.Price.Bottle}</li>
+                                <li>Glass:{item.Price.Glass}</li>
+                            </ul>
+                        </ul>
+                        </AccordionBody>
+                    </AccordionItem>
+                </Accordion>
             </li>
         )
     })
