@@ -1,7 +1,12 @@
 .App {
   text-align: center;
 }
-.ImgSize{
+
+.ImgSize {
   width: 150px;
   height: 300px;
+}
+
+ul {
+  list-style-type: none;
 }
