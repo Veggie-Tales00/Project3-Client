@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import apiUrl from "../apiURL";
 
 export default function Wine(props) {
   const [wineData, setWineData] = useState([]);
@@ -7,7 +8,7 @@ export default function Wine(props) {
 
   useEffect(() => {
     setInitialType(props.type)
-    fetch(`http://localhost:8080/wines`)
+    fetch(`${apiUrl}/wines`)
       .then((response) => response.json())
       .then((data) => setWineData(data.wines));
   }, []);
