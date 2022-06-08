@@ -6,24 +6,14 @@ const Manager = () => {
   return (
     <div>
       <h1>Manager</h1>
-      <Link to="/manager/edit">
+      <Link to="/manager/wine">
         <Button color="primary">
-          <h2>Add Wine</h2>
+          <h2>Manage Wine</h2>
         </Button>
       </Link>
-      <Link to="/manager/edit">
+      <Link to="/manager/dish">
         <Button color="primary">
-          <h2>Delete Wine</h2>
-        </Button>
-      </Link>
-      <Link to="/manager/edit">
-        <Button color="primary">
-          <h2>Add Dish</h2>
-        </Button>
-      </Link>
-      <Link to="/manager/edit">
-        <Button color="primary">
-          <h2>Update Wine</h2>
+          <h2>Manage Dish</h2>
         </Button>
       </Link>
     </div>
