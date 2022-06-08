@@ -10,6 +10,7 @@ import Links from "./Components/Links";
 import Wine from "./Components/Wine";
 import { useState, useEffect } from "react";
 import Dish from "./Components/Dish";
+import ManageDish from "./Components/ManageDish";
 
 function App() {
   const [wineType, setWineType] = useState("");
@@ -31,6 +32,7 @@ function App() {
         <Route path="/employee" element={<Employee />} />
         <Route path="/wine" element={<Wine type={wineType} />} />
         <Route path="/dish" element={<Dish />} />
+        <Route path="/manager/dish" element={<ManageDish />} />
       </Routes>
     </div>
   );
