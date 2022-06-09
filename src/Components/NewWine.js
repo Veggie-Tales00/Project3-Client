@@ -12,10 +12,12 @@ const [vintage, setVintage] = useState('')
 const [price, setPrice] = useState({Bottle: null, Glass: null})
 const [note, setNotes] = useState([])  
 
+//function to handle the Submit button event
   const handleSub = (e) =>{
 
     console.log(e.target.form.id)
 
+    //building the JSON object that will be used in the postRequestOp object
     const uploadData = {
       Price: price,
       Type: type,
@@ -26,24 +28,28 @@ const [note, setNotes] = useState([])
     }
     console.log(uploadData)
 
+    //Setting the POST request options to be used in the POST request
     const postRequestOp = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(uploadData)
     }
 
+    //Calling the POST request
     fetch(`${apiUrl}/wines`, postRequestOp)
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(()=> console.log('error'))
   }
 
+  //Handling the individual input feilds
   const handleInput = (e) =>{
     e.preventDefault()
 
     let text = e.target.value 
     let target = e.target.id
 
+    //Deciding what state to update depending on where the user is current typing
     switch(target){
       case "Type":
         setType(text)
