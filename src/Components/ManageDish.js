@@ -39,7 +39,7 @@ const handleSelect = (e) =>{
                 Enter New Dish
             </DropdownItem>
             <DropdownItem id="edit">
-                Edit / Delete Wine
+                Edit / Delete Dish
             </DropdownItem>
         </DropdownMenu>
       </Dropdown>

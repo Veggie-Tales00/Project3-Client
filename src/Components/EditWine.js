@@ -1,28 +1,26 @@
-import React, { useState } from 'react'
-import apiURL from '../apiURL'
-import { useEffect } from 'react'
-import { Accordion, AccordionBody, AccordionItem, List } from 'reactstrap'
+import React, { useState } from "react";
+import apiURL from "../apiURL";
+import { useEffect } from "react";
+import { Accordion, AccordionBody, AccordionItem, List } from "reactstrap";
 
 export default function EditWine() {
-const [wineList, setWineList] = useState([])
-const [isThisOpen, setIsThisOpen] = useState('')
-    useEffect(()=>{
-        fetch(`${apiURL}/wines`)
-        .then(response => response.json())
-        .then(data => setWineList(data.wines))
-        .catch(()=> console.log('Error'))
+  const [wineList, setWineList] = useState([]);
+  const [isThisOpen, setIsThisOpen] = useState("");
+  useEffect(() => {
+    fetch(`${apiURL}/wines`)
+      .then((response) => response.json())
+      .then((data) => setWineList(data.wines))
+      .catch(() => console.log("Error"));
+  }, []);
 
-    }, [])
-
-    const handleExpansion = (e) =>{
-        console.log(e.target.id)
-        if(isThisOpen === ''){
-         setIsThisOpen(parseInt(e.target.id))
-        }else{
-            setIsThisOpen('')
-        }
-
+  const handleExpansion = (e) => {
+    console.log(e.target.id);
+    if (isThisOpen === "") {
+      setIsThisOpen(parseInt(e.target.id));
+    } else {
+      setIsThisOpen("");
     }
+  };
 
     const displayList = wineList.map((item, i)=>{
         return(
@@ -55,5 +53,5 @@ const [isThisOpen, setIsThisOpen] = useState('')
             {displayList}
         </List>
     </div>
-  )
+  );
 }
