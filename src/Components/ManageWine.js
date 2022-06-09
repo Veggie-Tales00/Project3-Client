@@ -6,6 +6,7 @@ import EditWine from './EditWine'
 
 export default function ManageWine() {
   const [displayComponent, setDisplayContent] = useState('')
+  const [header, setHeader] = useState('Select Method')
   const [isThisOpen, setIsThisOpen] = useState(false)
 
 // Function to handle the dropdown menu
@@ -19,20 +20,22 @@ export default function ManageWine() {
 
   //function to handle what component is to be displayed base on the dropdown menu selection
   const handleSelect = (e) =>{
-    
+
     let selected = e.target.id
 
     if(selected === "new"){    
       setDisplayContent(<NewWine />)
+      setHeader('Add New Wine')
     }else if(selected === "edit"){
       setDisplayContent(<EditWine />)
+      setHeader('Edit / Delete Wine')
     }
   }
 
   return (
     <div>
       <div>
-        <h1>Wine's</h1>
+        <h1>{header}</h1>
       </div>
       <div>
       <Dropdown onClick={handleDrop} isOpen={isThisOpen}>
