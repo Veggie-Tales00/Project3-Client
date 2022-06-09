@@ -43,7 +43,6 @@ const Home = (props) => {
         </OffcanvasBody>
       </Offcanvas>
       <div>
-        <h1>Som-base</h1>
         <Button onClick={toggleLogIn} className="login">
           Manager LogIn
         </Button>
