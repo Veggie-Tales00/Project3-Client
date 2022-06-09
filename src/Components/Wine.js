@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Accordion, AccordionItem, AccordionHeader, AccordionBody } from "reactstrap";
 import apiUrl from "../apiURL";
 
 export default function Wine(props) {
@@ -20,10 +20,19 @@ export default function Wine(props) {
 
   console.log(wineData);
 
-  const wines = wineData.map((item) => {
+  const wines = wineData.map((item, index) => {
     if (item.Type === initialType) {
       return (
-        <li>{item.Producer}</li>
+        // <li>{item.Producer}</li>
+        <AccordionItem key={index}>
+          <AccordionHeader>
+            Variety: {item.Variety}  Producer: {item.Producer}
+          </AccordionHeader>
+          <AccordionBody>
+            something in the body
+          </AccordionBody>
+        </AccordionItem>
+
       )
     }
   });
@@ -136,7 +145,12 @@ export default function Wine(props) {
           <input type="Submit" />
         </form>
       </div>
-      <ul>{wines}</ul>
+      <Accordion
+        open="1"
+      // toggle={function noRefCheck() { }}
+      >
+        {wines}
+      </ Accordion>
     </div>
   );
 }
