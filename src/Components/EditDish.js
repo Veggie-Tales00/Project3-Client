@@ -20,11 +20,14 @@ const EditDish = () => {
       setIsThisOpen("");
     }
   };
-
+console.log(dishList)
   const displayList = dishList.map((item, i) => {
     return (
       <li key={item._id}>
-        <Accordion open={handleExpansion} id={i}>
+        <Accordion open={isThisOpen}>
+          <div onClick={handleExpansion} id={i}>
+            Type: {item.Dish}
+          </div>
           <AccordionItem>
             <AccordionBody accordionId={i}>
               <ul>
