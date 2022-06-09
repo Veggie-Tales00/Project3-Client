@@ -26,24 +26,24 @@ const [isThisOpen, setIsThisOpen] = useState('')
 
     const displayList = wineList.map((item, i)=>{
         return(
-            <li key={item._id} >
+            <li key={item._id} onClick={handleExpansion} >
                 <Accordion open={isThisOpen}>
-                    <div onClick={handleExpansion} id={i}>
-                        Type: {item.Type} <br />
-                        Producer: {item.Producer}
-                    </div>
+                    <div id={i}>
+                       <h5> Type: {item.Type}</h5> <br />
+                        <h5>Producer: {item.Producer} </h5>
                     <AccordionItem >
                         <AccordionBody accordionId={i}>
-                        <ul>
+                        <List type='unstyled'>
                             <li>{item.Variety}</li>
-                            <ul>
+                            <List type='unstyled'>
                                 Price:
                                 <li>Bottle:{item.Price.Bottle}</li>
                                 <li>Glass:{item.Price.Glass}</li>
-                            </ul>
-                        </ul>
+                            </List>
+                        </List>
                         </AccordionBody>
                     </AccordionItem>
+                    </div>
                 </Accordion>
             </li>
         )
@@ -51,7 +51,6 @@ const [isThisOpen, setIsThisOpen] = useState('')
     console.log(wineList)
   return (
     <div>
-        EditWine
         <List type="unstyled">
             {displayList}
         </List>

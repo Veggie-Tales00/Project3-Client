@@ -1,3 +1,4 @@
+import "./css/Home.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -43,7 +44,9 @@ const Home = (props) => {
       </Offcanvas>
       <div>
         <h1>Som-base</h1>
-        <Button onClick={toggleLogIn}>Manager LogIn</Button>
+        <Button onClick={toggleLogIn} className="login">
+          Manager LogIn
+        </Button>
       </div>
       <Container>
         <Row>
@@ -73,7 +76,7 @@ const Home = (props) => {
                 width=""
               ></CardImg>
               <Link to="/wine">
-                <Button id="White" onClick={props.setType}>
+                <Button id="White" onClick={props.setType} className="go-to">
                   Go to
                 </Button>
               </Link>
@@ -92,7 +95,11 @@ const Home = (props) => {
                 width=""
               ></CardImg>
               <Link to="/wine">
-                <Button id="Sparkling" onClick={props.setType}>
+                <Button
+                  id="Sparkling"
+                  onClick={props.setType}
+                  className="go-to"
+                >
                   Go to
                 </Button>
               </Link>
@@ -108,7 +115,7 @@ const Home = (props) => {
                 width=""
               ></CardImg>
               <Link to="/wine">
-                <Button id="Dessert" onClick={props.setType}>
+                <Button id="Dessert" onClick={props.setType} className="go-to">
                   Go to
                 </Button>
               </Link>
@@ -127,7 +134,7 @@ const Home = (props) => {
               <CardTitle tag="h3">Dishes</CardTitle>
               <CardImg alt="" src="" width=""></CardImg>
               <Link to="/dish">
-                <Button>Go to</Button>
+                <Button className="go-to">Go to</Button>
               </Link>
             </Card>
           </Col>

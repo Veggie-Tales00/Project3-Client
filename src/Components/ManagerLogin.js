@@ -8,11 +8,11 @@ function ManagerLogin(props) {
       <form>
         <label>
           Username:
-          <input type="text" placeholder="username..." />
+          <input type="username" placeholder="username..." />
         </label>
         <label>
           Password:
-          <input type="text" placeholder="password..." />
+          <input type="password" placeholder="password..." />
         </label>
         <Link to="/manager">
           <input onClick={props.submit} type="submit" />
