@@ -3,24 +3,24 @@ import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap
 import apiUrl from "../apiURL";
 
 export default function Wine(props) {
-  const [wineData, setWineData] = useState([]);
+  const [wineData, setWineData] = useState([]); // all wines
   const [initialType, setInitialType] = useState("");
   const [isThisOpen, setIsThisOpen] = useState(false);
   const [filterChoice, setFilterChoice] = useState('Filter');
   const [input, setInput] = useState('');
-  // const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [mapedWine, setMapedWine] = useState([])
 
   useEffect(() => {
     setInitialType(props.type)
-    fetch(`${apiUrl}/wines`)
+    fetch(`${apiUrl}/wines/`)
       .then((response) => response.json())
-      .then((data) => setWineData(data.wines));
+      .then((data) => setWineData(data.wines))
   }, []);
 
   console.log(wineData);
 
   const wines = wineData.map((item) => {
-    //console.log(initialType)
     if (item.Type === initialType) {
       return (
         <li>{item.Producer}</li>
@@ -28,22 +28,58 @@ export default function Wine(props) {
     }
   });
 
+  // setMapedWine(wines);
+
   const handleChange = (event) => {
+    console.log(event.target.value);
+    console.log(input)
     setInput(event.target.value);
   }
 
   const handleFilterSubmit = (event) => {
     event.preventDefault();
-    console.log(filterChoice);
+    console.log(`filterChoice:  ${filterChoice}`);
+    console.log(`input: ${input}`);
 
-    // if filterChoice is 'Filter'
-    // set error message to 'Please add filter criteria'
+    if (filterChoice === 'Filter') {
+      setErrorMessage('Please set filter criteria');
+      return 0;
+    }
+    if (input === '') {
+      setErrorMessage('Please enter search criteria');
+      return 0;
+    }
 
     switch (filterChoice) {
-      // check each of these
-      // if a filter has been chosen, 
-      //  filter by that filter
+      case 'Variety':
+        console.log(`Variety case chosen`)
+        setWineData(wineData.filter(wine => {
+          return wine.Variety === input
+        }))
+        break;
+      case 'Producer':
+        setWineData(wineData.filter(wine => {
+          return wine.Producer === input
+        }))
+        break;
+      case 'Vintage':
+        setWineData(wineData.filter(wine => {
+          return wine.Vintage === input
+        }))
+        break;
+      // case 'Notes' :
+      //   setWineData(wineData.filter( wine => {
+
+      //   }))
+      // break;
+      // case 'Pairings' :
+      //   setWineData(wineData.filter( wine => {
+
+      //   }))
+      // break;
     }
+
+    console.log(wineData)
 
   };
 
