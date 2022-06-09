@@ -119,9 +119,12 @@ export default function EditWine() {
 
         fetch(`${apiUrl}/wines/${PutId}`, postRequestOp)
             .then(response => response.json())
-            .then(data => {
-                setWineList(data.wines)
-
+            .then(data => setWineList(data.wines))
+            .then(()=>{
+                fetch(`${apiUrl}/wines`)
+                .then(response => response.json())
+                .then(data => setWineList(data.wines))
+                .catch(() => console.log('Error'))
             })
             .catch(() => console.log('error'))
 
