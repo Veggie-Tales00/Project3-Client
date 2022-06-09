@@ -44,6 +44,7 @@ export default function EditWine() {
 
 
     }
+  };
 
     const displayList = wineList.map((item, i) => {
         return (
@@ -71,6 +72,7 @@ export default function EditWine() {
             </li>
         )
     })
+<<<<<<< HEAD
     // console.log(wineList)
     return (
         <div>
@@ -79,4 +81,14 @@ export default function EditWine() {
             </List>
         </div>
     )
+=======
+    console.log(wineList)
+  return (
+    <div>
+        <List type="unstyled">
+            {displayList}
+        </List>
+    </div>
+  );
+>>>>>>> 387b265e2d086131a262b753017b436ee6c5d021
 }
