@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Accordion, AccordionItem, AccordionHeader, AccordionBody } from "reactstrap";
 import apiUrl from "../apiURL";
 
 export default function Wine(props) {
@@ -8,6 +8,7 @@ export default function Wine(props) {
   const [isThisOpen, setIsThisOpen] = useState(false);
   const [filterChoice, setFilterChoice] = useState('Filter');
   const [input, setInput] = useState('');
+  const [isOpen, setIsOpen] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [mapedWine, setMapedWine] = useState([])
 
@@ -20,15 +21,40 @@ export default function Wine(props) {
 
   console.log(wineData);
 
-  const wines = wineData.map((item) => {
+  const handleAccordianClick = (event) => {
+    console.log(`event: ${parseInt(event.target.id)}`)
+    if (isOpen === '') {
+      setIsOpen(event.target.accordianId)
+      console.log(isOpen)
+    } else {
+      setIsOpen('')
+    }
+  }
+
+  const wines = wineData.map((item, index) => {
     if (item.Type === initialType) {
       return (
-        <li>{item.Producer}</li>
+        <li id={index} key={index}>
+          <Accordion
+            open={isOpen} // set to accordian body id
+            toggle={handleAccordianClick}
+          >
+            <div id={index}>
+              <AccordionItem id={index}>
+                <h5> Type: {item.Type}</h5> <br />
+                <h5>Producer: {item.Producer} </h5>
+                <AccordionBody accordionId={index}>
+                  something in the body
+                </AccordionBody>
+              </AccordionItem>
+            </div>
+          </ Accordion>
+        </li>
       )
     }
   });
 
-  // setMapedWine(wines);
+
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -136,7 +162,9 @@ export default function Wine(props) {
           <input type="Submit" />
         </form>
       </div>
-      <ul>{wines}</ul>
+      <ul>
+        {wines}
+      </ul>
     </div>
   );
 }
