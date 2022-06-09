@@ -1,11 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button } from 'reactstrap'
+import "./css/Manager.css";
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 
 const Manager = () => {
   return (
     <div>
-      <h1>Manager</h1>
+      <h2>Manager</h2>
       <Link to="/managerWine">
         <Button color="primary">
           <h2>Manage Wine</h2>
@@ -17,7 +18,7 @@ const Manager = () => {
         </Button>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default Manager
+export default Manager;

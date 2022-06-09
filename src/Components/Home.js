@@ -35,7 +35,7 @@ const Home = (props) => {
     setlogin(false);
   };
   return (
-    <div>
+    <div className="home-container">
       <Offcanvas isOpen={login}>
         <OffcanvasHeader>Manager LogIn</OffcanvasHeader>
         <OffcanvasBody>
@@ -51,7 +51,7 @@ const Home = (props) => {
         <Row>
           <Col>
             <Card>
-              <CardTitle tag="h3">Red Wine</CardTitle>
+              <CardTitle className="card-title" tag="h3">Red Wine</CardTitle>
               <CardImg
                 className="ImgSize"
                 alt="Red Wine Photo"
@@ -67,7 +67,7 @@ const Home = (props) => {
           </Col>
           <Col>
             <Card>
-              <CardTitle tag="h3">White</CardTitle>
+              <CardTitle className="card-title" tag="h3">White</CardTitle>
               <CardImg
                 className="ImgSize"
                 alt="White Wine Photo"
@@ -86,7 +86,7 @@ const Home = (props) => {
         <Row>
           <Col>
             <Card>
-              <CardTitle tag="h3">Sparkling</CardTitle>
+              <CardTitle className="card-title" tag="h3">Sparkling</CardTitle>
               <CardImg
                 className="ImgSize"
                 alt="Sparkling Wine Photo"
@@ -106,7 +106,7 @@ const Home = (props) => {
           </Col>
           <Col>
             <Card>
-              <CardTitle tag="h3">Dessert / Other</CardTitle>
+              <CardTitle className="card-title" tag="h3">Dessert / Other</CardTitle>
               <CardImg
                 className="ImgSize"
                 alt="Dessert Wine Photo"
@@ -130,7 +130,7 @@ const Home = (props) => {
             }}
           >
             <Card>
-              <CardTitle tag="h3">Dishes</CardTitle>
+              <CardTitle className="card-title" tag="h3">Dishes</CardTitle>
               <CardImg alt="" src="" width=""></CardImg>
               <Link to="/dish">
                 <Button className="go-to">Go to</Button>
