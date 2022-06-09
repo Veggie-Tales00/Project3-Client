@@ -134,13 +134,13 @@ const Home = (props) => {
               size: 6,
             }}
           >
-            <Card className="dish-card">
+            <Card className="card">
               <CardTitle className="card-title" tag="h3">
                 Dishes
               </CardTitle>
               <CardImg
                 alt="food"
-                src="./download-2.jpg"
+                src="./images-2.jpg"
                 className="ImgSize"
               ></CardImg>
               <Link to="/dish">
