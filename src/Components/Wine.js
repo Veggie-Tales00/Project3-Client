@@ -6,7 +6,9 @@ export default function Wine(props) {
   const [wineData, setWineData] = useState([]);
   const [initialType, setInitialType] = useState("");
   const [isThisOpen, setIsThisOpen] = useState(false);
-  const [filter, setFilter] = useState('Filter');
+  const [filterChoice, setFilterChoice] = useState('Filter');
+  const [input, setInput] = useState('');
+  // const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     setInitialType(props.type)
@@ -26,13 +28,28 @@ export default function Wine(props) {
     }
   });
 
+  const handleChange = (event) => {
+    setInput(event.target.value);
+  }
+
   const handleFilterSubmit = (event) => {
-    return null;
+    event.preventDefault();
+    console.log(filterChoice);
+
+    // if filterChoice is 'Filter'
+    // set error message to 'Please add filter criteria'
+
+    switch (filterChoice) {
+      // check each of these
+      // if a filter has been chosen, 
+      //  filter by that filter
+    }
+
   };
 
   // Function to handle the dropdown menu selection clicks
   const handleFilterChoice = (event) => {
-    setFilter(event.target.id)
+    setFilterChoice(event.target.id)
   }
 
   // Function to handle the dropdown menu
@@ -50,7 +67,7 @@ export default function Wine(props) {
       <div className="d-flex justify-content-center p-6">
         <Dropdown onClick={handleDrop} isOpen={isThisOpen}>
           <DropdownToggle caret>
-            {filter}
+            {filterChoice}
           </DropdownToggle>
           <DropdownMenu end>
             <DropdownItem header>
@@ -78,8 +95,8 @@ export default function Wine(props) {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-        <form onsubmit={handleFilterSubmit}>
-          <input type="text" placeholder="Search..." />
+        <form onSubmit={handleFilterSubmit}>
+          <input type="text" id="input" placeholder={filterChoice} onChange={handleChange} value={input} />
           <input type="Submit" />
         </form>
       </div>
