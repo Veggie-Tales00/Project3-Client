@@ -48,7 +48,7 @@ const Home = (props) => {
       <Container>
         <Row>
           <Col>
-            <Card>
+            <Card className="card">
               <CardTitle className="card-title" tag="h3">
                 Red Wine
               </CardTitle>
@@ -66,7 +66,7 @@ const Home = (props) => {
             </Card>
           </Col>
           <Col>
-            <Card>
+            <Card className="card">
               <CardTitle className="card-title" tag="h3">
                 White
               </CardTitle>
@@ -87,7 +87,7 @@ const Home = (props) => {
 
         <Row>
           <Col>
-            <Card>
+            <Card className="card">
               <CardTitle className="card-title" tag="h3">
                 Sparkling
               </CardTitle>
@@ -109,7 +109,7 @@ const Home = (props) => {
             </Card>
           </Col>
           <Col>
-            <Card>
+            <Card className="card">
               <CardTitle className="card-title" tag="h3">
                 Dessert / Other
               </CardTitle>
@@ -134,7 +134,7 @@ const Home = (props) => {
               size: 6,
             }}
           >
-            <Card>
+            <Card className="dish-card">
               <CardTitle className="card-title" tag="h3">
                 Dishes
               </CardTitle>
