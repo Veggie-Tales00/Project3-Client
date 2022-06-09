@@ -1,3 +1,19 @@
 nav {
-    background-color: #a2b5be
+    background-color: rgb(36, 5, 12, .8);
+    color: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
 }
+
+h1 {
+    font-family: 'Allura', cursive;
+    font-size: 70px;
+    margin: 0;
+    padding-left: 12px;
+}
+
+.icon {
+    margin-top: 6px;
+    margin-right: 5px;
+}
+

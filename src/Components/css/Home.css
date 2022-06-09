@@ -1,3 +1,22 @@
-.login {
-    float: right
+.card-title {
+    font-family: 'Allura', cursive;
+    color: #f0f0f0;
 }
+
+.go-to {
+    float: right;
+    margin: 0 5px 5px 10px;
+}
+
+.ImgSize {
+    height: 200px;
+    padding: 0 40px 30px 40px;
+  }
+
+.card {
+    padding: 15px 0 15px 0;
+    margin: 15px 10px 15px 10px;
+    border-radius: 12px !important;
+    background-image: linear-gradient(rgb(36,30,37), rgb(36,30,37,.5)) !important;
+}
+
