@@ -9,12 +9,12 @@ const Manager = () => {
       <h2>Manager</h2>
       <Link to="/managerWine">
         <Button color="primary">
-          <h2>Manage Wine</h2>
+          <h3>Manage Wine</h3>
         </Button>
       </Link>
       <Link to="/manager/dish">
         <Button color="primary">
-          <h2>Manage Dish</h2>
+          <h3>Manage Dish</h3>
         </Button>
       </Link>
     </div>

@@ -13,10 +13,8 @@ import {
   OffcanvasBody,
   OffcanvasHeader,
 } from "reactstrap";
-import RedWineImg from "../Imgs/RedWineResized.jpg";
 import WhiteWineImg from "../Imgs/WhiteWineResize.jpg";
 import SparklingWineImg from "../Imgs/SparklingWine.jpeg";
-import DesertWineImg from "../Imgs/DesertWine.jpg";
 import ManagerLogin from "./ManagerLogin";
 
 const Home = (props) => {
@@ -51,15 +49,17 @@ const Home = (props) => {
         <Row>
           <Col>
             <Card>
-              <CardTitle className="card-title" tag="h3">Red Wine</CardTitle>
+              <CardTitle className="card-title" tag="h3">
+                Red Wine
+              </CardTitle>
               <CardImg
                 className="ImgSize"
                 alt="Red Wine Photo"
-                src={RedWineImg}
+                src="./images-1.jpg"
                 width="100%"
               ></CardImg>
               <Link to="/wine">
-                <Button id="Red" onClick={props.setType}>
+                <Button className="go-to" id="Red" onClick={props.setType}>
                   Go to
                 </Button>
               </Link>
@@ -67,7 +67,9 @@ const Home = (props) => {
           </Col>
           <Col>
             <Card>
-              <CardTitle className="card-title" tag="h3">White</CardTitle>
+              <CardTitle className="card-title" tag="h3">
+                White
+              </CardTitle>
               <CardImg
                 className="ImgSize"
                 alt="White Wine Photo"
@@ -86,7 +88,9 @@ const Home = (props) => {
         <Row>
           <Col>
             <Card>
-              <CardTitle className="card-title" tag="h3">Sparkling</CardTitle>
+              <CardTitle className="card-title" tag="h3">
+                Sparkling
+              </CardTitle>
               <CardImg
                 className="ImgSize"
                 alt="Sparkling Wine Photo"
@@ -106,12 +110,13 @@ const Home = (props) => {
           </Col>
           <Col>
             <Card>
-              <CardTitle className="card-title" tag="h3">Dessert / Other</CardTitle>
+              <CardTitle className="card-title" tag="h3">
+                Dessert / Other
+              </CardTitle>
               <CardImg
                 className="ImgSize"
                 alt="Dessert Wine Photo"
-                src={DesertWineImg}
-                width=""
+                src="./260965-1200x800-wines_and_desserts.webp"
               ></CardImg>
               <Link to="/wine">
                 <Button id="Dessert" onClick={props.setType} className="go-to">
@@ -130,8 +135,14 @@ const Home = (props) => {
             }}
           >
             <Card>
-              <CardTitle className="card-title" tag="h3">Dishes</CardTitle>
-              <CardImg alt="" src="" width=""></CardImg>
+              <CardTitle className="card-title" tag="h3">
+                Dishes
+              </CardTitle>
+              <CardImg
+                alt="food"
+                src="./download-2.jpg"
+                className="ImgSize"
+              ></CardImg>
               <Link to="/dish">
                 <Button className="go-to">Go to</Button>
               </Link>

@@ -2,5 +2,9 @@
     font-family: 'Allura', cursive;
 }
 
+.go-to {
+    float: right;
+    margin: 0 5px 5px 5px;
+}
 
 
