@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function ManagerLogin(props) {
   return (
     <div className="canvas">
-      <h3>Manager login:</h3>
+      <h3 className="loginh3">Manager login:</h3>
       <form>
         <label>
           Username:
@@ -16,7 +16,7 @@ function ManagerLogin(props) {
           <input type="password" placeholder="password..." />
         </label>
         <Link to="/manager">
-          <input onClick={props.submit} type="submit" value="Log In"/>
+          <input className="userLogin" onClick={props.submit} type="submit" value="Log In"/>
         </Link>
       </form>
     </div>

@@ -4,7 +4,7 @@ import { Card, CardBody, CardImg, CardText, CardTitle, List } from 'reactstrap'
 export default function Contributores() {
   return (
     <div>
-      <Card>
+      <Card style={{color:"#f0f0f0"}}>
         <CardTitle>
           Mike Sabella
         </CardTitle>
@@ -26,7 +26,7 @@ export default function Contributores() {
           </CardText>
         </CardBody>
       </Card>
-      <Card>
+      <Card style={{color:"#f0f0f0"}}>
         <CardTitle>
           Julia Machin
         </CardTitle>
@@ -50,7 +50,7 @@ export default function Contributores() {
 
         </CardBody>
       </Card>
-      <Card>
+      <Card style={{color:"#f0f0f0"}}>
         <CardTitle>
           Anas Ryadi
         </CardTitle>
@@ -73,7 +73,7 @@ export default function Contributores() {
 
         </CardBody>
       </Card>
-      <Card>
+      <Card style={{color:"#f0f0f0"}}>
         <CardTitle>
           Jacob Wencloff
         </CardTitle>
