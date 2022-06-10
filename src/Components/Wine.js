@@ -189,16 +189,18 @@ export default function Wine(props) {
   // Function to handle the dropdown menu selection clicks
   const handleFilterChoice = (event) => {
     setFilterChoice(event.target.id)
+    handleDrop()
   }
 
   // Function to handle the dropdown menu
   const handleDrop = () => {
-    if (isThisOpen === true) {
-      console.log(`isThisOpen: ${isThisOpen}`)
-      setIsDropdownOpen(false)
-    } else {
-      setIsDropdownOpen(true)
-    }
+    setIsDropdownOpen(!isDropdownOpen)
+    // if (isThisOpen === true) {
+    //   console.log(`isThisOpen: ${isThisOpen}`)
+    //   setIsDropdownOpen(false)
+    // } else {
+    //   setIsDropdownOpen(true)
+    // }
   }
 
   return (
