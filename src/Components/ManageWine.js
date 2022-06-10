@@ -35,7 +35,7 @@ export default function ManageWine() {
   return (
     <div>
       <div>
-        <h1>{header}</h1>
+        <h1 style={{color:"#f0f0f0"}}>{header}</h1>
       </div>
       <div>
       <Dropdown onClick={handleDrop} isOpen={isThisOpen}>

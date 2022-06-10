@@ -30,28 +30,30 @@ export default function Wine(props) {
   };
 
   const wines = wineData.map((item, index) => {
-    return (
-      <li key={item._id}>
-        <Accordion open={isThisOpen}>
-          <div onClick={handleExpansion} id={index}>
-            <h5 style={{color:"#f0f0f0"}} > Type: {item.Type}</h5> <br />
-            <h5 style={{color:"#f0f0f0"}} >Producer: {item.Producer} </h5>
-          </div>
-          <AccordionItem>
-            <AccordionBody accordionId={index}>
-              <List type='unstyled'>
-                <li>Variety: {item.Variety}</li> <br />
-                Price-
-                <List >
-                  <li>Bottle:{item.Price.Bottle}</li>
-                  <li>Glass:{item.Price.Glass}</li>
+    if (item.Type === initialType) {
+      return (
+        <li key={item._id}>
+          <Accordion open={isThisOpen}>
+            <div onClick={handleExpansion} id={index}>
+              <h5 style={{ color: "#f0f0f0" }} > Type: {item.Type}</h5> <br />
+              <h5 style={{ color: "#f0f0f0" }}>Producer: {item.Producer} </h5>
+            </div>
+            <AccordionItem>
+              <AccordionBody accordionId={index}>
+                <List type='unstyled'>
+                  <li>Variety: {item.Variety}</li> <br />
+                  Price-
+                  <List >
+                    <li>Bottle:{item.Price.Bottle}</li>
+                    <li>Glass:{item.Price.Glass}</li>
+                  </List>
                 </List>
-              </List>
-            </AccordionBody>
-          </AccordionItem>
-        </Accordion>
-      </li>
-    );
+              </AccordionBody>
+            </AccordionItem>
+          </Accordion>
+        </li>
+      );
+    }
   });
 
   const handleChange = (event) => {
@@ -120,7 +122,7 @@ export default function Wine(props) {
 
   return (
     <div>
-      <h1>{props.type}</h1>
+      <h1 style={{ color: "#f0f0f0" }}>{props.type}</h1>
       <div className="d-flex justify-content-center p-6">
         <Dropdown onClick={handleDrop} isOpen={isDropdownOpen}>
           <DropdownToggle caret>

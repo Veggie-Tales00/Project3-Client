@@ -8,7 +8,7 @@ const Employee = () => {
       <h1>Employee</h1>
       <Link to="/employee/searchwines">
         <Button color="primary">
-          <h2>Search Wines</h2>
+          <h2 style={{color:"#f0f0f0"}}>Search Wines</h2>
         </Button>
       </Link>
       <Link to="/employee/searchdish">
