@@ -6,14 +6,17 @@ export default function Dish(props) {
   const [dish, setDish] = useState([]);
 
   useEffect(() => {
-    fetch(`${apiUrl}/wines`)
+    fetch(`${apiUrl}/dishes`)
       .then((response) => response.json())
       .then((data) => setDish(data.dishes))
       .catch((error) => console.log(error));
   }, []);
 
   const dishes = dish.map((dishItem) => {
-    return <li>{dishItem.Dish}</li>;
+    return <li>
+      <h5>Dish Name: {dishItem.Dish}</h5><br />
+      <h5>Dish Price: {dishItem.Price}</h5><br />
+    </li>;
   });
 
   return (
