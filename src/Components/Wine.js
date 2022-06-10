@@ -6,11 +6,11 @@ export default function Wine(props) {
   const [wineData, setWineData] = useState([]); // all wines
   const [initialType, setInitialType] = useState("");
   const [isThisOpen, setIsThisOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [filterChoice, setFilterChoice] = useState('Filter');
   const [input, setInput] = useState('');
   const [isOpen, setIsOpen] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [mapedWine, setMapedWine] = useState([])
 
   useEffect(() => {
     setInitialType(props.type)
@@ -88,12 +88,12 @@ export default function Wine(props) {
       case 'Variety':
         console.log(`Variety case chosen`)
         setWineData(wineData.filter(wine => {
-          return wine.Variety === input
+          return wine.Variety.toLowerCase() === input.toLowerCase();
         }))
         break;
       case 'Producer':
         setWineData(wineData.filter(wine => {
-          return wine.Producer === input
+          return wine.Producer.toLowerCase() === input.toLowerCase();
         }))
         break;
       case 'Vintage':
@@ -125,9 +125,9 @@ export default function Wine(props) {
   // Function to handle the dropdown menu
   const handleDrop = () => {
     if (isThisOpen === true) {
-      setIsThisOpen(false)
+      setIsDropdownOpen(false)
     } else {
-      setIsThisOpen(true)
+      setIsDropdownOpen(true)
     }
   }
 
@@ -135,7 +135,7 @@ export default function Wine(props) {
     <div>
       <h1>{props.type}</h1>
       <div className="d-flex justify-content-center p-6">
-        <Dropdown onClick={handleDrop} isOpen={isThisOpen}>
+        <Dropdown onClick={handleDrop} isOpen={isDropdownOpen}>
           <DropdownToggle caret>
             {filterChoice}
           </DropdownToggle>
