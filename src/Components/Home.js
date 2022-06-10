@@ -140,6 +140,7 @@ const Home = (props) => {
                 alt="food"
                 src="./images-2.jpg"
                 className="ImgSize"
+                id="dodido"
               ></CardImg>
               <Link to="/dish">
                 <Button className="go-to">Go to</Button>
