@@ -4,6 +4,7 @@ nav {
     color: #f0f0f0;
     display: flex;
     justify-content: space-between;
+    height: 100px;
 }
 
 h1 {

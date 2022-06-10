@@ -18,7 +18,7 @@ export default function Dish(props) {
 
   return (
     <div>
-      <h1>Dishes</h1>
+      <h2>Dishes</h2>
       <form>
         <input type="text" placeholder="Dish Name" />
         <input type="submit" value="Search" />
