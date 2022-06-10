@@ -16,7 +16,7 @@ function ManagerLogin(props) {
           <input type="password" placeholder="password..." />
         </label>
         <Link to="/manager">
-          <input onClick={props.submit} type="submit" />
+          <input onClick={props.submit} type="submit" value="Log In"/>
         </Link>
       </form>
     </div>
