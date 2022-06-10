@@ -6,10 +6,10 @@ export default function Wine(props) {
   const [wineData, setWineData] = useState([]); // all wines
   const [initialType, setInitialType] = useState("");
   const [isThisOpen, setIsThisOpen] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [filterChoice, setFilterChoice] = useState('Filter');
   const [input, setInput] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [mapedWine, setMapedWine] = useState([])
 
 
   useEffect(() => {
@@ -53,86 +53,6 @@ export default function Wine(props) {
     );
   });
 
-
-  // ----------------------------------------------------------------
-
-  // useEffect(() => {
-  //   setInitialType(props.type)
-  //   fetch(`${apiUrl}/wines/`)
-  //     .then((response) => response.json())
-  //     .then((data) => setWineData(data.wines))
-  // }, []);
-
-  // console.log(wineData);
-
-  // const handleAccordianClick = (event) => {
-  //   console.log(`event: ${event}`)
-  //   console.log(`event.target: ${event.target}`)
-  //   console.log(`event.target.id: ${parseInt(event.target.id)}`)
-  //   if (isOpen === '') {
-  //     setIsOpen(parseInt(event.target.id))
-  //     console.log(isOpen)
-  //   } else {
-  //     setIsOpen('')
-  //   }
-  // }
-
-  // const wines = wineData.map((item, index) => {
-  //   console.log(item.Type)
-  //   if (item.Type === initialType) {
-  //     return (
-  //       <li key={index} >
-  //         <Accordion
-  //           open={isOpen} // set to accordian body id
-  //           id={index}
-  //         >
-  //           <div onClick={handleAccordianClick}>
-  //             <AccordionItem >
-  // <h5 > Type: {item.Type}</h5> <br />
-  // <h5 >Producer: {item.Producer} </h5>
-  //               <AccordionBody accordionId={index}>
-  //                 <List type='unstyled'>
-  //                   <li>Variety: {item.Variety}</li> <br />
-  //                   Price-
-  //                   <List >
-  //                     <li>Bottle:{item.Price.Bottle}</li>
-  //                     <li>Glass:{item.Price.Glass}</li>
-  //                     <Button >Edit</Button>
-  //                     <Button >Delete</Button>
-  //                   </List>
-  //                 </List>
-  //               </AccordionBody>
-  //             </AccordionItem>
-  //           </div>
-  //         </ Accordion>
-  //       </li>
-  //     )
-  //   }
-  // });
-
-  // const wines = wineData.map((item, i) => {
-  //   return (
-  //     <li key={item._id}>
-  //       <Accordion open={isOpen}>
-  //         <div onClick={handleAccordianClick} id={i}>
-  //           Type: {item.Dish}
-  //         </div>
-  //         <AccordionItem>
-  //           <AccordionBody accordionId={i}>
-  //             <list>
-  //               <li>{item.Price}</li>
-  //               <li>{item.Pairings}</li>
-  //               <Button>Edit</Button>
-  //               <Button>Delete</Button>
-  //             </list>
-  //           </AccordionBody>
-  //         </AccordionItem>
-  //       </Accordion>
-  //     </li>
-  //   );
-  // });
-
-
   const handleChange = (event) => {
     console.log(event.target.value);
     console.log(input)
@@ -157,12 +77,12 @@ export default function Wine(props) {
       case 'Variety':
         console.log(`Variety case chosen`)
         setWineData(wineData.filter(wine => {
-          return wine.Variety === input
+          return wine.Variety.toLowerCase() === input.toLowerCase();
         }))
         break;
       case 'Producer':
         setWineData(wineData.filter(wine => {
-          return wine.Producer === input
+          return wine.Producer.toLowerCase() === input.toLowerCase();
         }))
         break;
       case 'Vintage':
@@ -194,9 +114,9 @@ export default function Wine(props) {
   // Function to handle the dropdown menu
   const handleDrop = () => {
     if (isThisOpen === true) {
-      setIsThisOpen(false)
+      setIsDropdownOpen(false)
     } else {
-      setIsThisOpen(true)
+      setIsDropdownOpen(true)
     }
   }
 
@@ -204,7 +124,7 @@ export default function Wine(props) {
     <div>
       <h1>{props.type}</h1>
       <div className="d-flex justify-content-center p-6">
-        <Dropdown onClick={handleDrop} isOpen={isThisOpen}>
+        <Dropdown onClick={handleDrop} isOpen={isDropdownOpen}>
           <DropdownToggle caret>
             {filterChoice}
           </DropdownToggle>

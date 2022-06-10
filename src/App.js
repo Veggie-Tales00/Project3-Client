@@ -36,6 +36,9 @@ function App() {
         <Route path="/dish" element={<Dish />} />
         <Route path="/manager/dish" element={<ManageDish />} />
       </Routes>
+      <footer>
+        <Link to="/credits">Credits</Link>
+      </footer>
     </div>
   );
 }
