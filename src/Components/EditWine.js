@@ -139,8 +139,8 @@ export default function EditWine() {
             <li key={item._id} id={item._id} onClick={handleExpansion} >
                 <Accordion open={isThisOpen}>
                     <div id={i}>
-                        <h5> Type: {item.Type}</h5> <br />
-                        <h5>Producer: {item.Producer} </h5>
+                        <h5 style={{color:"#f0f0f0"}}> Type: {item.Type}</h5> <br />
+                        <h5 style={{color:"#f0f0f0"}}>Producer: {item.Producer} </h5>
                         <AccordionItem >
                             <AccordionBody accordionId={i}>
                                 <List type='unstyled'>
@@ -178,7 +178,7 @@ export default function EditWine() {
 
 
 
-    
+
     return (
         <div>
             <List type="unstyled">

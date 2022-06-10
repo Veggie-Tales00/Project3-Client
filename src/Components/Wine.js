@@ -33,8 +33,8 @@ export default function Wine(props) {
       <li key={item._id}>
         <Accordion open={isThisOpen}>
           <div onClick={handleExpansion} id={index}>
-            <h5 > Type: {item.Type}</h5> <br />
-            <h5 >Producer: {item.Producer} </h5>
+            <h5 style={{color:"#f0f0f0"}} > Type: {item.Type}</h5> <br />
+            <h5 style={{color:"#f0f0f0"}} >Producer: {item.Producer} </h5>
           </div>
           <AccordionItem>
             <AccordionBody accordionId={index}>
