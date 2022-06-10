@@ -3,25 +3,45 @@ import { useEffect, useState } from "react";
 import apiUrl from "../apiURL";
 
 export default function Dish(props) {
-  const [dish, setDish] = useState([]);
+  const [dishData, setDishData] = useState([]);
+  const [input, setInput] = useState('');
+  const [reset, setReset] = useState(false);
 
   useEffect(() => {
-    fetch(`${apiUrl}/wines`)
+    fetch(`${apiUrl}/dishes`)
       .then((response) => response.json())
-      .then((data) => setDish(data.dishes))
+      .then((data) => setDishData(data.dishes))
       .catch((error) => console.log(error));
-  }, []);
+  }, [reset]);
 
-  const dishes = dish.map((dishItem) => {
-    return <li>{dishItem.Dish}</li>;
+  const dishes = dishData.map((dishItem, index) => {
+    return <li key={index}>
+      <h5>Dish Name: {dishItem.Dish}</h5><br />
+      <h5>Dish Price: {dishItem.Price}</h5><br />
+    </li>;
   });
+
+  const handleDishSubmit = (event) => {
+    event.preventDefault();
+    setDishData(dishData.filter(dish => dish.Dish === input));
+  }
+
+  const handleChange = (event) => {
+    setInput(event.target.value);
+  }
+
+  const handleReset = () => {
+    setReset(!reset);
+    setInput('');
+  }
 
   return (
     <div>
-      <h1>Dishes</h1>
-      <form>
-        <input type="text" placeholder="Dish Name" />
+      <h2>Dishes</h2>
+      <form onSubmit={handleDishSubmit}>
+        <input type="text" placeholder="Dish Name" onChange={handleChange} value={input} />
         <input type="submit" value="Search" />
+        <input type="button" value="Reset" onClick={handleReset} />
       </form>
       <ul>{dishes}</ul>
     </div>
