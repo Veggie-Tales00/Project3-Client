@@ -6,8 +6,22 @@
 .go-to {
     float: right;
     margin: 0 5px 5px 10px;
-    background-color: #484352 !important;
+    background-color: #6d667c !important;
     border: outset 1.5px rgb(153, 150, 150) !important;
+}
+
+/* .ImgSize {
+    height: 200px;
+    padding: 0 40px 30px 40px;
+    opacity: 100% !important;
+  } */
+
+.card {
+    padding: 15px 0 15px 0;
+    margin: 15px 10px 15px 10px;
+    border-radius: 12px !important;
+    background-color: rgb(36,30,37,0.8) !important;
+    opacity: 90%;
 }
 
 .ImgSize {
@@ -15,11 +29,21 @@
     padding: 0 40px 30px 40px;
   }
 
-.card {
-    padding: 15px 0 15px 0;
-    margin: 15px 10px 15px 10px;
-    border-radius: 12px !important;
-    background-image: linear-gradient(rgb(36,30,37), rgb(36,30,37,.5)) !important;
+.off-canvas {
+    /* background-color: rgb(170, 159, 188) !important; */
+    opacity: 0.9;
+    height: 500px;
+    width: 400px;
+    background-color: rgb(255,255,255,0.13) !important;
+    border-radius: 10px !important;
+    backdrop-filter: blur(10px) !important;
+    border: 2px solid rgb(255,255,255,0.1) !important;
+    box-shadow: 0 0 40px rgb(8,7,16,0.6) !important;
+    padding: 50px 35px; 
 }
 
+.login {
+    background-color: #6d667c !important;
+    border: outset 1.5px rgb(153, 150, 150) !important; 
+}
 

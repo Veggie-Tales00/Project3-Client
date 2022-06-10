@@ -11,6 +11,7 @@ import Wine from "./Components/Wine";
 import { useState, useEffect } from "react";
 import Dish from "./Components/Dish";
 import ManageDish from "./Components/ManageDish";
+import Credits from "./Components/Credits";
 
 function App() {
   const [wineType, setWineType] = useState("");
@@ -26,6 +27,7 @@ function App() {
       <Links />
 
       <Routes>
+        <Route path="/credits" element={<Credits />} />
         <Route path="/" element={<Home setType={callback} />} />
         <Route path="/manager" element={<Manager />} />
         <Route path="/managerWine" element={<ManageWine />} />
@@ -34,6 +36,9 @@ function App() {
         <Route path="/dish" element={<Dish />} />
         <Route path="/manager/dish" element={<ManageDish />} />
       </Routes>
+      <footer>
+        <Link to="/credits">Credits</Link>
+      </footer>
     </div>
   );
 }
