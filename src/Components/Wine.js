@@ -5,7 +5,7 @@ import apiUrl from "../apiURL";
 export default function Wine(props) {
   const [wineData, setWineData] = useState([]); // all wines
   const [initialType, setInitialType] = useState("");
-  const [isThisOpen, setIsThisOpen] = useState(false);
+  const [isThisOpen, setIsThisOpen] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [filterChoice, setFilterChoice] = useState('Filter');
   const [input, setInput] = useState('');
