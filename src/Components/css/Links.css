@@ -1,5 +1,6 @@
 nav {
-    background-color: rgb(36, 5, 12, .8);
+    background-color: rgb(36, 5, 12);
+    opacity: 90%;
     color: #f0f0f0;
     display: flex;
     justify-content: space-between;
