@@ -1,10 +1,11 @@
+import "./css/ManagerLogin.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
 function ManagerLogin(props) {
   return (
-    <div>
-      <h3>Manager login:</h3>
+    <div className="canvas">
+      <h3 className="loginh3">Manager login:</h3>
       <form>
         <label>
           Username:
@@ -15,7 +16,7 @@ function ManagerLogin(props) {
           <input type="password" placeholder="password..." />
         </label>
         <Link to="/manager">
-          <input onClick={props.submit} type="submit" />
+          <input className="userLogin" onClick={props.submit} type="submit" value="Log In"/>
         </Link>
       </form>
     </div>
