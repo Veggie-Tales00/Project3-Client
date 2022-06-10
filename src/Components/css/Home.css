@@ -30,8 +30,16 @@
   }
 
 .off-canvas {
-    background-color: rgb(170, 159, 188) !important;
-    opacity: 0.9
+    /* background-color: rgb(170, 159, 188) !important; */
+    opacity: 0.9;
+    height: 500px;
+    width: 400px;
+    background-color: rgb(255,255,255,0.13) !important;
+    border-radius: 10px !important;
+    backdrop-filter: blur(10px) !important;
+    border: 2px solid rgb(255,255,255,0.1) !important;
+    box-shadow: 0 0 40px rgb(8,7,16,0.6) !important;
+    padding: 50px 35px; 
 }
 
 .login {
