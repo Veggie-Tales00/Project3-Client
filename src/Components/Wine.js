@@ -9,6 +9,7 @@ export default function Wine(props) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [filterChoice, setFilterChoice] = useState('Filter');
   const [input, setInput] = useState('');
+  const [reset, setReset] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
 
@@ -17,7 +18,7 @@ export default function Wine(props) {
     fetch(`${apiUrl}/wines/`)
       .then((response) => response.json())
       .then((data) => setWineData(data.wines))
-  }, []);
+  }, [reset]);
 
   const handleExpansion = (event) => {
     console.log(event.target.id);
@@ -53,96 +54,12 @@ export default function Wine(props) {
     );
   });
 
-
-  // ----------------------------------------------------------------
-
-  // useEffect(() => {
-  //   setInitialType(props.type)
-  //   fetch(`${apiUrl}/wines/`)
-  //     .then((response) => response.json())
-  //     .then((data) => setWineData(data.wines))
-  // }, []);
-
-  // console.log(wineData);
-
-  // const handleAccordianClick = (event) => {
-  //   console.log(`event: ${event}`)
-  //   console.log(`event.target: ${event.target}`)
-  //   console.log(`event.target.id: ${parseInt(event.target.id)}`)
-  //   if (isOpen === '') {
-  //     setIsOpen(parseInt(event.target.id))
-  //     console.log(isOpen)
-  //   } else {
-  //     setIsOpen('')
-  //   }
-  // }
-
-  // const wines = wineData.map((item, index) => {
-  //   console.log(item.Type)
-  //   if (item.Type === initialType) {
-  //     return (
-  //       <li key={index} >
-  //         <Accordion
-  //           open={isOpen} // set to accordian body id
-  //           id={index}
-  //         >
-  //           <div onClick={handleAccordianClick}>
-  //             <AccordionItem >
-  // <h5 > Type: {item.Type}</h5> <br />
-  // <h5 >Producer: {item.Producer} </h5>
-  //               <AccordionBody accordionId={index}>
-  //                 <List type='unstyled'>
-  //                   <li>Variety: {item.Variety}</li> <br />
-  //                   Price-
-  //                   <List >
-  //                     <li>Bottle:{item.Price.Bottle}</li>
-  //                     <li>Glass:{item.Price.Glass}</li>
-  //                     <Button >Edit</Button>
-  //                     <Button >Delete</Button>
-  //                   </List>
-  //                 </List>
-  //               </AccordionBody>
-  //             </AccordionItem>
-  //           </div>
-  //         </ Accordion>
-  //       </li>
-  //     )
-  //   }
-  // });
-
-  // const wines = wineData.map((item, i) => {
-  //   return (
-  //     <li key={item._id}>
-  //       <Accordion open={isOpen}>
-  //         <div onClick={handleAccordianClick} id={i}>
-  //           Type: {item.Dish}
-  //         </div>
-  //         <AccordionItem>
-  //           <AccordionBody accordionId={i}>
-  //             <list>
-  //               <li>{item.Price}</li>
-  //               <li>{item.Pairings}</li>
-  //               <Button>Edit</Button>
-  //               <Button>Delete</Button>
-  //             </list>
-  //           </AccordionBody>
-  //         </AccordionItem>
-  //       </Accordion>
-  //     </li>
-  //   );
-  // });
-
-
   const handleChange = (event) => {
-    console.log(event.target.value);
-    console.log(input)
     setInput(event.target.value);
   }
 
   const handleFilterSubmit = (event) => {
     event.preventDefault();
-    console.log(`filterChoice:  ${filterChoice}`);
-    console.log(`input: ${input}`);
 
     if (filterChoice === 'Filter') {
       setErrorMessage('Please set filter criteria');
@@ -155,7 +72,6 @@ export default function Wine(props) {
 
     switch (filterChoice) {
       case 'Variety':
-        console.log(`Variety case chosen`)
         setWineData(wineData.filter(wine => {
           return wine.Variety.toLowerCase() === input.toLowerCase();
         }))
@@ -175,29 +91,31 @@ export default function Wine(props) {
 
         }))
         break;
-      // case 'Pairings' :
+      // case 'Pairings' :    To be worked on in the future
       //   setWineData(wineData.filter( wine => {
 
       //   }))
       // break;
     }
-
-    console.log(wineData)
-
+    setInput('')
   };
 
   // Function to handle the dropdown menu selection clicks
   const handleFilterChoice = (event) => {
     setFilterChoice(event.target.id)
-    handleDrop()
+    handleDrop();
+    // (input === '') ? handleReset() : 0;
+    if (input === '') { handleReset(); }
   }
 
   // Function to handle the dropdown menu
   const handleDrop = () => {
     setIsDropdownOpen(!isDropdownOpen)
-    if (isThisOpen === true) {
-      // setInput('Filter')
-    }
+  }
+
+  const handleReset = () => {
+    setReset(!reset);
+    setInput('');
   }
 
   return (
