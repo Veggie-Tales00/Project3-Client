@@ -8,12 +8,12 @@ const Manager = () => {
     <div>
       <h2>Manager</h2>
       <Link to="/managerWine">
-        <Button>
+        <Button className="manage" color="secondary">
           <h3>Manage Wine</h3>
         </Button>
       </Link>
       <Link to="/manager/dish">
-        <Button>
+        <Button className="manage" color="secondary">
           <h3>Manage Dish</h3>
         </Button>
       </Link>
