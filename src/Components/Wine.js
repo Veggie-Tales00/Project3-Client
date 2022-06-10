@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Accordion, AccordionItem, AccordionHeader, AccordionBody } from "reactstrap";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Accordion, AccordionItem, AccordionBody, List, Button } from "reactstrap";
 import apiUrl from "../apiURL";
 
 export default function Wine(props) {
@@ -22,9 +22,10 @@ export default function Wine(props) {
   console.log(wineData);
 
   const handleAccordianClick = (event) => {
-    console.log(`event: ${parseInt(event.target.id)}`)
+    console.log(`event: ${event}`)
+    console.log(`event: ${event.target}`)
     if (isOpen === '') {
-      setIsOpen(event.target.accordianId)
+      setIsOpen(event.target.id)
       console.log(isOpen)
     } else {
       setIsOpen('')
@@ -34,17 +35,26 @@ export default function Wine(props) {
   const wines = wineData.map((item, index) => {
     if (item.Type === initialType) {
       return (
-        <li id={index} key={index}>
+        <li key={index} >
           <Accordion
             open={isOpen} // set to accordian body id
-            toggle={handleAccordianClick}
+            id={index}
           >
-            <div id={index}>
-              <AccordionItem id={index}>
-                <h5> Type: {item.Type}</h5> <br />
-                <h5>Producer: {item.Producer} </h5>
+            <div onClick={handleAccordianClick}>
+              <AccordionItem >
+                <h5 > Type: {item.Type}</h5> <br />
+                <h5 >Producer: {item.Producer} </h5>
                 <AccordionBody accordionId={index}>
-                  something in the body
+                  <List type='unstyled'>
+                    <li>Variety: {item.Variety}</li> <br />
+                    Price-
+                    <List >
+                      <li>Bottle:{item.Price.Bottle}</li>
+                      <li>Glass:{item.Price.Glass}</li>
+                      <Button >Edit</Button>
+                      <Button >Delete</Button>
+                    </List>
+                  </List>
                 </AccordionBody>
               </AccordionItem>
             </div>
@@ -53,8 +63,6 @@ export default function Wine(props) {
       )
     }
   });
-
-
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -93,11 +101,11 @@ export default function Wine(props) {
           return wine.Vintage === input
         }))
         break;
-      // case 'Notes' :
-      //   setWineData(wineData.filter( wine => {
+      case 'Notes':
+        setWineData(wineData.filter(wine => {
 
-      //   }))
-      // break;
+        }))
+        break;
       // case 'Pairings' :
       //   setWineData(wineData.filter( wine => {
 
