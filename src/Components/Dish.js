@@ -16,8 +16,8 @@ export default function Dish(props) {
 
   const dishes = dishData.map((dishItem, index) => {
     return <li key={index}>
-      <h5>Dish Name: {dishItem.Dish}</h5><br />
-      <h5>Dish Price: {dishItem.Price}</h5><br />
+      <h5 style={{color:"#f0f0f0"}}>Dish Name: {dishItem.Dish}</h5><br />
+      <h5 style={{color:"#f0f0f0"}}>Dish Price: {dishItem.Price}</h5><br />
     </li>;
   });
 
