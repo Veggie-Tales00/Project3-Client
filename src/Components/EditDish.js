@@ -28,7 +28,7 @@ const EditDish = () => {
       <li key={item._id}>
         <Accordion open={isThisOpen}>
           <div onClick={handleExpansion} id={i}>
-          <h5>Dish Name: {item.Dish}</h5><br />
+          <h5 style={{color:"#f0f0f0"}}>Dish Name: {item.Dish}</h5><br />
           </div>
           <AccordionItem>
             <AccordionBody accordionId={i}>

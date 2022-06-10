@@ -39,9 +39,9 @@ export default function Dish(props) {
     <div>
       <h2>Dishes</h2>
       <form onSubmit={handleDishSubmit}>
-        <input type="text" placeholder="Dish Name" onChange={handleChange} value={input} />
-        <input type="submit" value="Search" />
-        <input type="button" value="Reset" onClick={handleReset} />
+        <input type="text" placeholder="Dish Name" onChange={handleChange} value={input} style={{color:"#f0f0f0"}}/>
+        <input type="submit" value="Search" style={{color:"#f0f0f0"}}/>
+        <input type="button" value="Reset" onClick={handleReset} style={{color:"#f0f0f0"}}/>
       </form>
       <ul>{dishes}</ul>
     </div>
