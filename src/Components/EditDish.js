@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Accordion, AccordionBody, AccordionItem, Button, List } from "reactstrap";
+import {
+  Accordion,
+  AccordionBody,
+  AccordionItem,
+  Button,
+  List,
+} from "reactstrap";
 import apiUrl from "../apiURL";
 
 const EditDish = () => {
   const [dishList, setDishList] = useState([]);
   const [isThisOpen, setIsThisOpen] = useState("");
-  // const [postId, setpostId] = useState(null);
+  const [openEdit, setOpenEdit] = useState("");
+  const [dish, setDish] = useState("");
+  const [price, setPrice] = useState("");
+  const [pairings, setPairings] = useState([]);
 
   useEffect(() => {
     fetch(`${apiUrl}/dishes`)
@@ -13,6 +22,11 @@ const EditDish = () => {
       .then((data) => setDishList(data.dishes))
       .catch(() => console.log("Error"));
   }, []);
+
+  const deleteRequestOption = {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  };
 
   const handleExpansion = (e) => {
     console.log(e.target.id);
@@ -28,12 +42,13 @@ const EditDish = () => {
       <li key={item._id}>
         <Accordion open={isThisOpen}>
           <div onClick={handleExpansion} id={i}>
-            Type: {item.Dish}
+            <h5>Dish Name: {item.Dish}</h5>
+            <br />
           </div>
           <AccordionItem>
             <AccordionBody accordionId={i}>
               <list>
-                <li>{item.Price}</li>
+                <li>${item.Price}</li>
                 <li>{item.Pairings}</li>
                 <Button>Edit</Button>
                 <Button>Delete</Button>
@@ -47,7 +62,6 @@ const EditDish = () => {
 
   return (
     <div>
-      EditDish
       <List type="unstyled">{displayList}</List>
     </div>
   );
