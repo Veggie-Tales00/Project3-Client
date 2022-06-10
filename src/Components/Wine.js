@@ -194,6 +194,7 @@ export default function Wine(props) {
   // Function to handle the dropdown menu
   const handleDrop = () => {
     if (isThisOpen === true) {
+      console.log(`isThisOpen: ${isThisOpen}`)
       setIsDropdownOpen(false)
     } else {
       setIsDropdownOpen(true)
