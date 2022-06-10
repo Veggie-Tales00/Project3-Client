@@ -10,8 +10,7 @@ import {
   Container,
   Row,
   Offcanvas,
-  OffcanvasBody,
-  OffcanvasHeader,
+  OffcanvasBody
 } from "reactstrap";
 import WhiteWineImg from "../Imgs/WhiteWineResize.jpg";
 import SparklingWineImg from "../Imgs/SparklingWine.jpeg";
@@ -34,8 +33,7 @@ const Home = (props) => {
   };
   return (
     <div className="home-container">
-      <Offcanvas isOpen={login}>
-        <OffcanvasHeader>Manager LogIn</OffcanvasHeader>
+      <Offcanvas className="off-canvas" isOpen={login}>
         <OffcanvasBody>
           <ManagerLogin submit={managerSubmit} />
         </OffcanvasBody>

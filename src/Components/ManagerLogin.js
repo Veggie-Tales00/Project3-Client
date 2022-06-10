@@ -1,9 +1,10 @@
+import "./css/ManagerLogin.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
 function ManagerLogin(props) {
   return (
-    <div>
+    <div className="canvas">
       <h3>Manager login:</h3>
       <form>
         <label>
