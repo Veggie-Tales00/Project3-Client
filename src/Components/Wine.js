@@ -9,8 +9,8 @@ export default function Wine(props) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [filterChoice, setFilterChoice] = useState('Filter');
   const [input, setInput] = useState('');
-  const [isOpen, setIsOpen] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
 
   useEffect(() => {
     setInitialType(props.type)
@@ -19,50 +19,119 @@ export default function Wine(props) {
       .then((data) => setWineData(data.wines))
   }, []);
 
-  console.log(wineData);
-
-  const handleAccordianClick = (event) => {
-    console.log(`event: ${event}`)
-    console.log(`event: ${event.target}`)
-    if (isOpen === '') {
-      setIsOpen(event.target.id)
-      console.log(isOpen)
+  const handleExpansion = (event) => {
+    console.log(event.target.id);
+    if (isThisOpen === "") {
+      setIsThisOpen(parseInt(event.target.id));
     } else {
-      setIsOpen('')
+      setIsThisOpen("");
     }
-  }
+  };
 
   const wines = wineData.map((item, index) => {
-    if (item.Type === initialType) {
-      return (
-        <li key={index} >
-          <Accordion
-            open={isOpen} // set to accordian body id
-            id={index}
-          >
-            <div onClick={handleAccordianClick}>
-              <AccordionItem >
-                <h5 > Type: {item.Type}</h5> <br />
-                <h5 >Producer: {item.Producer} </h5>
-                <AccordionBody accordionId={index}>
-                  <List type='unstyled'>
-                    <li>Variety: {item.Variety}</li> <br />
-                    Price-
-                    <List >
-                      <li>Bottle:{item.Price.Bottle}</li>
-                      <li>Glass:{item.Price.Glass}</li>
-                      <Button >Edit</Button>
-                      <Button >Delete</Button>
-                    </List>
-                  </List>
-                </AccordionBody>
-              </AccordionItem>
-            </div>
-          </ Accordion>
-        </li>
-      )
-    }
+    return (
+      <li key={item._id}>
+        <Accordion open={isThisOpen}>
+          <div onClick={handleExpansion} id={index}>
+            <h5 > Type: {item.Type}</h5> <br />
+            <h5 >Producer: {item.Producer} </h5>
+          </div>
+          <AccordionItem>
+            <AccordionBody accordionId={index}>
+              <List type='unstyled'>
+                <li>Variety: {item.Variety}</li> <br />
+                Price-
+                <List >
+                  <li>Bottle:{item.Price.Bottle}</li>
+                  <li>Glass:{item.Price.Glass}</li>
+                </List>
+              </List>
+            </AccordionBody>
+          </AccordionItem>
+        </Accordion>
+      </li>
+    );
   });
+
+
+  // ----------------------------------------------------------------
+
+  // useEffect(() => {
+  //   setInitialType(props.type)
+  //   fetch(`${apiUrl}/wines/`)
+  //     .then((response) => response.json())
+  //     .then((data) => setWineData(data.wines))
+  // }, []);
+
+  // console.log(wineData);
+
+  // const handleAccordianClick = (event) => {
+  //   console.log(`event: ${event}`)
+  //   console.log(`event.target: ${event.target}`)
+  //   console.log(`event.target.id: ${parseInt(event.target.id)}`)
+  //   if (isOpen === '') {
+  //     setIsOpen(parseInt(event.target.id))
+  //     console.log(isOpen)
+  //   } else {
+  //     setIsOpen('')
+  //   }
+  // }
+
+  // const wines = wineData.map((item, index) => {
+  //   console.log(item.Type)
+  //   if (item.Type === initialType) {
+  //     return (
+  //       <li key={index} >
+  //         <Accordion
+  //           open={isOpen} // set to accordian body id
+  //           id={index}
+  //         >
+  //           <div onClick={handleAccordianClick}>
+  //             <AccordionItem >
+  // <h5 > Type: {item.Type}</h5> <br />
+  // <h5 >Producer: {item.Producer} </h5>
+  //               <AccordionBody accordionId={index}>
+  //                 <List type='unstyled'>
+  //                   <li>Variety: {item.Variety}</li> <br />
+  //                   Price-
+  //                   <List >
+  //                     <li>Bottle:{item.Price.Bottle}</li>
+  //                     <li>Glass:{item.Price.Glass}</li>
+  //                     <Button >Edit</Button>
+  //                     <Button >Delete</Button>
+  //                   </List>
+  //                 </List>
+  //               </AccordionBody>
+  //             </AccordionItem>
+  //           </div>
+  //         </ Accordion>
+  //       </li>
+  //     )
+  //   }
+  // });
+
+  // const wines = wineData.map((item, i) => {
+  //   return (
+  //     <li key={item._id}>
+  //       <Accordion open={isOpen}>
+  //         <div onClick={handleAccordianClick} id={i}>
+  //           Type: {item.Dish}
+  //         </div>
+  //         <AccordionItem>
+  //           <AccordionBody accordionId={i}>
+  //             <list>
+  //               <li>{item.Price}</li>
+  //               <li>{item.Pairings}</li>
+  //               <Button>Edit</Button>
+  //               <Button>Delete</Button>
+  //             </list>
+  //           </AccordionBody>
+  //         </AccordionItem>
+  //       </Accordion>
+  //     </li>
+  //   );
+  // });
+
 
   const handleChange = (event) => {
     console.log(event.target.value);
