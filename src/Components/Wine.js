@@ -9,6 +9,7 @@ export default function Wine(props) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [filterChoice, setFilterChoice] = useState('Filter');
   const [input, setInput] = useState('');
+  const [reset, setReset] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
 
@@ -17,7 +18,7 @@ export default function Wine(props) {
     fetch(`${apiUrl}/wines/`)
       .then((response) => response.json())
       .then((data) => setWineData(data.wines))
-  }, []);
+  }, [reset]);
 
   const handleExpansion = (event) => {
     console.log(event.target.id);
@@ -54,15 +55,11 @@ export default function Wine(props) {
   });
 
   const handleChange = (event) => {
-    console.log(event.target.value);
-    console.log(input)
     setInput(event.target.value);
   }
 
   const handleFilterSubmit = (event) => {
     event.preventDefault();
-    console.log(`filterChoice:  ${filterChoice}`);
-    console.log(`input: ${input}`);
 
     if (filterChoice === 'Filter') {
       setErrorMessage('Please set filter criteria');
@@ -75,7 +72,6 @@ export default function Wine(props) {
 
     switch (filterChoice) {
       case 'Variety':
-        console.log(`Variety case chosen`)
         setWineData(wineData.filter(wine => {
           return wine.Variety.toLowerCase() === input.toLowerCase();
         }))
@@ -95,29 +91,31 @@ export default function Wine(props) {
 
         }))
         break;
-      // case 'Pairings' :
+      // case 'Pairings' :    To be worked on in the future
       //   setWineData(wineData.filter( wine => {
 
       //   }))
       // break;
     }
-
-    console.log(wineData)
-
+    setInput('')
   };
 
   // Function to handle the dropdown menu selection clicks
   const handleFilterChoice = (event) => {
     setFilterChoice(event.target.id)
-    handleDrop()
+    handleDrop();
+    // (input === '') ? handleReset() : 0;
+    if (input === '') { handleReset(); }
   }
 
   // Function to handle the dropdown menu
   const handleDrop = () => {
     setIsDropdownOpen(!isDropdownOpen)
-    if (isThisOpen === true) {
-      // setInput('Filter')
-    }
+  }
+
+  const handleReset = () => {
+    setReset(!reset);
+    setInput('');
   }
 
   return (
