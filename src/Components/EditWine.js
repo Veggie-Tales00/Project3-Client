@@ -66,13 +66,14 @@ export default function EditWine() {
 
 
     let obj = {}
+    
     const handleInput = (e) => {
         e.preventDefault()
 
         let text = e.target.value
         let target = e.target.id
 
-
+        //On a user typed input, this comparitor runs on every key press in order to determin what text feild should be updated
         if (target === 'type') {
             setType(text)
         } else if (target === 'producer') {
@@ -88,7 +89,7 @@ export default function EditWine() {
     console.log(type)
     console.log(producer)
 
-
+    //on submission, this chain of if statments essentiall determins of the input feild has been updated, if it has it will be used in the PATCH obect
     const handleSub = () => {
         if (type !== '') {
             obj.Type = type
@@ -116,7 +117,7 @@ export default function EditWine() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(obj)
         }
-
+        //this fetch runs the PATCH op than continues to gun a GET op in order to update the DB then update the UI accordingly 
         fetch(`${apiUrl}/wines/${PutId}`, postRequestOp)
             .then(response => response.json())
             .then(data => setWineList(data.wines))
@@ -132,7 +133,7 @@ export default function EditWine() {
         setOpenEdit('')
 
     }
-
+    //This map is what created the Data shown on the screen
     const displayList1 = wineList.map((item, i) => {
         return (
             <li key={item._id} id={item._id} onClick={handleExpansion} >
