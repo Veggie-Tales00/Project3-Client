@@ -88,11 +88,11 @@ export default function Wine(props) {
           return wine.Vintage === input
         }))
         break;
-      case 'Notes':
-        setWineData(wineData.filter(wine => {
+      // case 'Notes':
+      //   setWineData(wineData.filter(wine => {
 
-        }))
-        break;
+      //   }))
+      //   break;
       // case 'Pairings' :    To be worked on in the future
       //   setWineData(wineData.filter( wine => {
 
@@ -106,7 +106,6 @@ export default function Wine(props) {
   const handleFilterChoice = (event) => {
     setFilterChoice(event.target.id)
     handleDrop();
-    // (input === '') ? handleReset() : 0;
     if (input === '') { handleReset(); }
   }
 
