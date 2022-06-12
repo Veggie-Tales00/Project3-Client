@@ -1,15 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-<<<<<<< HEAD
-export default function Wine(props) {
-
-    
-    return (
-        <div>
-            <h1>{props.type}</h1>
-        </div>
-    )
-=======
 function Wine() {
   //const [wineData, setWineData] = useState([]);
 
@@ -21,7 +11,6 @@ function Wine() {
  
 
   return <div>Wine</div>;
->>>>>>> b4e849c (fetched api from localhost)
 }
 
 export default Wine;
