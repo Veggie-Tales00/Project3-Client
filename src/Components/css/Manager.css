@@ -1,0 +1,11 @@
+h2 {
+    font-family: 'Allura', cursive;
+    font-size: 50px !important;
+    color: #f0f0f0; 
+}
+
+.manage {
+    margin: 10px !important;
+    background-color: #7f798a !important;
+    border: outset 2px rgb(220, 212, 212) !important;
+}

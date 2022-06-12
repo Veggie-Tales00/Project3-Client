@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "reactstrap";
+import './css/Links.css'
+
 
 const Links = () => {
   return (
     <nav>
+      <h1>Som-Base</h1>
       <Link to="/">
-        <Button color="primary">
-          <h2>Home</h2>
-        </Button>
+        <img src='./light.png' width="70" height="70" alt='home-icon' className="icon" />
       </Link>
     </nav>
   );

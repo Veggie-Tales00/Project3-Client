@@ -1,63 +1,150 @@
-import React from "react";
+import "./css/Home.css";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Card, CardImg, CardTitle, Col, Container, Row } from "reactstrap";
+import {
+  Button,
+  Card,
+  CardImg,
+  CardTitle,
+  Col,
+  Container,
+  Row,
+  Offcanvas,
+  OffcanvasBody
+} from "reactstrap";
+import WhiteWineImg from "../Imgs/WhiteWineResize.jpg";
+import SparklingWineImg from "../Imgs/SparklingWine.jpeg";
+import ManagerLogin from "./ManagerLogin";
 
 const Home = (props) => {
+  const [login, setlogin] = useState(false);
 
+  //Toggle the state of the manager login Offcanvas div
+  const toggleLogIn = () => {
+    if (login === false) {
+      setlogin(true);
+    } else {
+      setlogin(false);
+    }
+  };
 
+  const managerSubmit = () => {
+    setlogin(false);
+  };
   return (
-    <div>
-      <h1>Som-base</h1>
+    <div className="home-container">
+      <Offcanvas className="off-canvas" isOpen={login}>
+        <OffcanvasBody>
+          <ManagerLogin submit={managerSubmit} />
+        </OffcanvasBody>
+      </Offcanvas>
+      <div>
+        <Button onClick={toggleLogIn} className="login">
+          Manager LogIn
+        </Button>
+      </div>
       <Container>
         <Row>
           <Col>
-            <Card >
-              <CardTitle tag="h3">Red Wine</CardTitle>
-              <CardImg alt="Red Wine Photo" src="" width="100%" ></CardImg>
-              <Link to='/wine'>
-                <Button id="Red" onClick={props.setType}>Go to</Button>
+            <Card className="card">
+              <CardTitle className="card-title" tag="h3">
+                Red Wine
+              </CardTitle>
+              <CardImg
+                className="ImgSize"
+                alt="Red Wine Photo"
+                src="./images-1.jpg"
+                width="100%"
+              ></CardImg>
+              <Link to="/wine">
+                <Button className="go-to" id="Red" onClick={props.setType}>
+                  Go to
+                </Button>
               </Link>
             </Card>
           </Col>
           <Col>
-            <Card>
-              <CardTitle tag="h3">White</CardTitle>
-              <CardImg alt="White Wine Photo" src="" width=""></CardImg>
-              <Link to='/wine'>
-                <Button id="White" onClick={props.setType}>Go to</Button>
+            <Card className="card">
+              <CardTitle className="card-title" tag="h3">
+                White
+              </CardTitle>
+              <CardImg
+                className="ImgSize"
+                alt="White Wine Photo"
+                src={WhiteWineImg}
+                width=""
+              ></CardImg>
+              <Link to="/wine">
+                <Button id="White" onClick={props.setType} className="go-to">
+                  Go to
+                </Button>
               </Link>
             </Card>
           </Col>
         </Row>
+
         <Row>
           <Col>
-            <Card>
-              <CardTitle tag="h3">Sparkling</CardTitle>
-              <CardImg alt="Sparkling Wine Photo" src=""width=""></CardImg>
-              <Link to='/wine'>
-                <Button id="Sparkling" onClick={props.setType}>Go to</Button>
+            <Card className="card">
+              <CardTitle className="card-title" tag="h3">
+                Sparkling
+              </CardTitle>
+              <CardImg
+                className="ImgSize"
+                alt="Sparkling Wine Photo"
+                src={SparklingWineImg}
+                width=""
+              ></CardImg>
+              <Link to="/wine">
+                <Button
+                  id="Sparkling"
+                  onClick={props.setType}
+                  className="go-to"
+                >
+                  Go to
+                </Button>
               </Link>
             </Card>
           </Col>
           <Col>
-            <Card>
-              <CardTitle tag="h3">Desert / Other</CardTitle>
-              <CardImg alt="Desert Wine Photo" src="" width=""></CardImg>
-              <Link to='/wine'>
-                <Button id="Desert" onClick={props.setType}>Go to</Button>
+            <Card className="card">
+              <CardTitle className="card-title" tag="h3">
+                Dessert / Other
+              </CardTitle>
+              <CardImg
+                className="ImgSize"
+                alt="Dessert Wine Photo"
+                src="./260965-1200x800-wines_and_desserts.webp"
+              ></CardImg>
+              <Link to="/wine">
+                <Button id="Dessert" onClick={props.setType} className="go-to">
+                  Go to
+                </Button>
               </Link>
             </Card>
           </Col>
         </Row>
+
         <Row>
-          <Col sm={{
-            offset: 3,
-            size: 6
-          }}>
-            <Card>
-              <CardTitle tag="h3">Dishes</CardTitle>
-              <CardImg alt="" src="" width=""></CardImg>
-              <Button >Go to</Button>
+          <Col
+            sm={{
+              offset: 3,
+              size: 6,
+            }}
+          >
+            <Card className="card">
+              <CardTitle className="card-title" tag="h3">
+                Dishes
+              </CardTitle>
+              <CardImg
+                alt="food"
+                src="./images-2.jpg"
+                className="ImgSize"
+                id="dodido"
+              ></CardImg>
+              <Link to="/dish">
+                <Button className="go-to">Go to</Button>
+              </Link>
             </Card>
           </Col>
         </Row>
